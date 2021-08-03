@@ -12,10 +12,6 @@ public class Task4_1 {
 
     public static boolean yearDefiner() throws Exception {
         int year = Utils.numReader();
-        if ((year % 400) == 0) {
-            return true;
-        } else if ((year % 100) == 0) {
-            return false;
-        } else return (year % 4) == 0;
+        return (year % 400) == 0 || ((year % 100) != 0 && (year % 4) == 0);
     }
 }

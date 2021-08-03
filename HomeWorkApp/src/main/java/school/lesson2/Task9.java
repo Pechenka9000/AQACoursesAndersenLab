@@ -14,7 +14,7 @@ public class Task9 {
     }
 
     public static int[][] arrayChanger (int[][] array) {
-        int y = 10;
+        int y = array.length-1;
         for (int i = 0; i < array.length; i++, y--) {
             array[i][i] = 1;
             array[i][y] = 1;

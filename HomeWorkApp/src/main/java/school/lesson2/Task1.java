@@ -7,13 +7,10 @@ package school.lesson2;
  */
 public class Task1 {
      public static void main(String[] args) {
-        twoIntegers(25, 17);
+        System.out.println(twoIntegers(5, 7));
      }
 
      public static boolean twoIntegers(int x, int y) {
-         boolean b;
-         int s = x + y;
-         b = s >= 10 & s <= 20;
-         return b;
+         return (x+y)>=10&(x+y)<=20;
      }
 }
