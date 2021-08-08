@@ -7,7 +7,7 @@ package school.lesson2;
 public class Task8 {
     public static void main(String[] args) {
         //По заданию не требуется, но для наглядности решил вывести на экран.
-        Utils.arrayOut(arrayChanger(Utils.arrayCreatorConst(new int[]{1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1})));
+        Utils.arrayOut(arrayChanger(new int[]{1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1}));
     }
 
     public static int[] arrayChanger(int[] array) {
