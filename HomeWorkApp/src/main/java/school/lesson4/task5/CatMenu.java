@@ -15,8 +15,8 @@ public class CatMenu {
                 case 1: {
                     System.out.println("Сколько еды положить коту?");
                     Random random = new Random();
-                    int r = random.nextInt(100)+1;
-                    MainClass.feedCat(new Plate(Utils.numReader()), new Cat("Бродячий", r));
+                    int appetite = random.nextInt(100)+1;
+                    MainClass.feedCat(new Plate(Utils.numReader()), new Cat("Бродячий", appetite));
                     System.out.println();
                     break;
                 }
@@ -32,7 +32,6 @@ public class CatMenu {
                             System.out.println("Сколько еды положить?");
                             MainClass.feedAllCats(new Plate(Utils.numReader()));
                             MainClass.satietyToConsole();
-
                         }
                         case 2 -> {
                             System.out.println("Сколько еды положить коту?");

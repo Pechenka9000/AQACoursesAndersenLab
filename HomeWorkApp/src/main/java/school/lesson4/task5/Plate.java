@@ -6,6 +6,10 @@ public class Plate {
         Plate.food = food;
     }
 
+    public void increaseFood(int n) {
+        food += n;
+    }
+
     public void decreaseFood(int n) {
         food -= n;
     }
