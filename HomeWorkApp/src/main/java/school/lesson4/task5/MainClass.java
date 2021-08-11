@@ -1,11 +1,6 @@
 package school.lesson4.task5;
 
 import school.lesson2.Utils;
-import school.lesson4.task6.Goods;
-import school.lesson4.task6.GoodsRepository;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *    Расширить задачу про котов и тарелки с едой, выполнив следующие пункты:
@@ -21,7 +16,8 @@ public class MainClass {
         CatMenu.menu();
     }
 
-    // Если в тарелке больше еды чем аппетит кота, то он поест.
+    //Если в тарелке больше еды чем аппетит кота, то он поест;
+    //Реализована опция добавления еды в тарелку, если коту не хватило еды.
     public static void feedCat(Plate p, Cat cat) throws Exception {
         if (p.getFood() >= cat.getAppetite()) {
             p.decreaseFood(cat.getAppetite());
@@ -33,18 +29,13 @@ public class MainClass {
             int i = Utils.numScanner();
             switch (i) {
                 case 1: {
-                    while (cat.isSatiety() == false) {
-                        one:
-                        {
-                            System.out.println("У этого кота аппетит - " + cat.getAppetite());
-                            System.out.println("Сколько еды добавить в тарелку?");
-                            System.out.println("Еда = " + p.getFood());
-                            p.increaseFood(Utils.numReader());
-                            feedCat(p, cat);
-                            if (cat.isSatiety() == true) {
-                                break;
-                            } else break one;
-                        }
+                    while (!cat.isSatiety()) {
+                        System.out.println("У этого кота аппетит - " + cat.getAppetite());
+                        System.out.println("Сколько еды добавить в тарелку?");
+                        System.out.println("Еда = " + p.getFood());
+                        p.increaseFood(Utils.numReader());
+                        feedCat(p, cat);
+                        if (cat.isSatiety()) break;
                     }
                 }
                 case 2: {
@@ -57,47 +48,54 @@ public class MainClass {
         }
     }
 
-    // Кормим всех котов из листа, если кот покушал - true
+    //Кормим всех котов из листа, если кот покушал - true;
+    //Реализована опция добавления еды в тарелку, если котам не хватило еды.
     public static void feedAllCats(Plate p) {
-        CatRepository.getCatList().forEach(cat -> {
-            if (p.getFood() >= cat.getAppetite()) {
-                p.decreaseFood(cat.getAppetite());
-                cat.setSatiety(true);
+        for( ; ; ) {
+            if (CatRepository.getCatList().isEmpty()) {
+                System.out.println("Все коты сыты");
+                System.exit(0);
             } else {
-                System.out.println("Всем котам не хватило еды утолить голод, хотите добавить в тарелку еды?");
-                System.out.println("1. Да, конечно. \n2. Не хочу никого кормить.");
-                int f = Utils.numScanner();
-                switch (f) {
-                    case 1: {
-                        while (!CatRepository.getCatList().isEmpty()) {
-                            one:
-                            {
-                                System.out.println("У этого кота аппетит - " + cat.getAppetite());
-                                System.out.println("Сколько еды добавить в тарелку?");
-                                System.out.println("Еда = " + p.getFood());
-                                try {
-                                    p.increaseFood(Utils.numReader());
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                                feedAllCats(p);
-                                if (cat.isSatiety() == true & CatRepository.getCatList().isEmpty()) {
-                                    break;
-                                } else
-                                    CatRepository.getCatList().remove(0);
-                                    break one;
-                                }
-                            }
-                        }
-                    case 2: {
-                        System.exit(0);
-                        break;
-                    } default: {
-                        System.out.println("Нет такой опции.");
-                    }
+            if (CatRepository.getCatList().get(0).isSatiety()) {
+                CatRepository.getCatList().remove(0);
                 }
             }
-        });
+            CatRepository.getCatList().forEach(cat -> {
+                if (p.getFood() >= cat.getAppetite()) {
+                    p.decreaseFood(cat.getAppetite());
+                    cat.setSatiety(true);
+                } else {
+                    System.out.println("Всем котам не хватило еды утолить голод, хотите добавить в тарелку еды?");
+                    System.out.println("1. Да, конечно. \n2. Не хочу никого кормить.");
+                    int f = Utils.numScanner();
+                    switch (f) {
+                        case 1: {
+                            System.out.println("У этого кота аппетит - " + cat.getAppetite());
+                            System.out.println("Сколько еды добавить в тарелку?");
+                            System.out.println("Еда = " + p.getFood());
+                            try {
+                                p.increaseFood(Utils.numReader());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                feedAllCats(p);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        case 2: {
+                            System.exit(0);
+                            break;
+                        }
+                        default: {
+                            System.out.println("Нет такой опции.");
+                        }
+
+                    }
+                }
+            });
+        }
     }
 
     public static void satietyToConsole() {
