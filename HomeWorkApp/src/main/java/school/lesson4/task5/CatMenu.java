@@ -16,7 +16,7 @@ public class CatMenu {
                     System.out.println("Сколько еды положить коту?");
                     Random random = new Random();
                     int appetite = random.nextInt(100)+1;
-                    MainClass.feedCat(new Plate(Utils.numReader()), new Cat("Бродячий", appetite));
+                    FeedCats.feedCat(new Plate(Utils.numReader()), new Cat("Бродячий", appetite));
                     System.out.println();
                     break;
                 }
@@ -30,24 +30,24 @@ public class CatMenu {
                     switch (v) {
                         case 1 -> {
                             System.out.println("Сколько еды положить?");
-                            MainClass.feedAllCats(new Plate(Utils.numReader()));
-                            MainClass.satietyToConsole();
+                            FeedCats.feedAllCats(new Plate(Utils.numReader()));
+                            FeedCats.satietyToConsole();
                         }
                         case 2 -> {
                             System.out.println("Сколько еды положить коту?");
-                            MainClass.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(0));
+                            FeedCats.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(0));
                             System.out.println();
 
                         }
                         case 3 -> {
                             System.out.println("Сколько еды положить коту?");
-                            MainClass.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(1));
+                            FeedCats.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(1));
                             System.out.println();
 
                         }
                         case 4 -> {
                             System.out.println("Сколько еды положить коту?");
-                            MainClass.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(2));
+                            FeedCats.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(2));
                             System.out.println();
                         }
                         case 5 ->
