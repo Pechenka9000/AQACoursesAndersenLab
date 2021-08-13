@@ -31,5 +31,11 @@ public class Box<T extends Fruit> {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "Box{" +
+                "boxAmount=" + boxAmount +
+                ", fruit=" + fruit +
+                '}';
+    }
 }
