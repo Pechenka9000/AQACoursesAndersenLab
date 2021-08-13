@@ -6,12 +6,15 @@ import java.util.List;
 /**
  * Написать метод, который меняет два элемента массива местами
  * (массив может быть любого ссылочного типа);
- * (Условие не уточняет, поэтому решил выполнить задачу в общем виде).
  */
 
 public class MainClass {
     public static void main(String[] args) throws Exception {
-        System.out.println(swapElements(new ArrayList<Integer>(), 3, 7 ));
+        List<Integer>list = new ArrayList<>();
+        for(int i = 0; i < 15; i++) {
+            list.add(i);
+        }
+        System.out.println(swapElements(list, 3, 7 )); // Вывел в консоль для наглядности;
     }
 
     public static <T> List<T> swapElements(List<T> list, int index1, int index2) {

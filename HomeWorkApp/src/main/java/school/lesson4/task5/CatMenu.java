@@ -28,31 +28,31 @@ public class CatMenu {
                     System.out.println("Никого не буду кормить.");
                     int v = Utils.numScanner();
                     switch (v) {
-                        case 1 -> {
+                        case 1: {
                             System.out.println("Сколько еды положить?");
                             FeedCats.feedAllCats(new Plate(Utils.numReader()));
                             FeedCats.satietyToConsole();
                         }
-                        case 2 -> {
+                        case 2: {
                             System.out.println("Сколько еды положить коту?");
                             FeedCats.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(0));
                             System.out.println();
 
                         }
-                        case 3 -> {
+                        case 3: {
                             System.out.println("Сколько еды положить коту?");
                             FeedCats.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(1));
                             System.out.println();
 
                         }
-                        case 4 -> {
+                        case 4: {
                             System.out.println("Сколько еды положить коту?");
                             FeedCats.feedCat(new Plate(Utils.numReader()), CatRepository.getCatList().get(2));
                             System.out.println();
                         }
-                        case 5 ->
+                        case 5:
                             System.exit(0);
-                        default ->
+                        default:
                             System.out.println("Нет такой опции.");
                     }
                 }

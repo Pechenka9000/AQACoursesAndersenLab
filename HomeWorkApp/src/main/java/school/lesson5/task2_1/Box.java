@@ -1,27 +1,23 @@
 package school.lesson5.task2_1;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Box<T extends Fruit> {
     private final List<T> fruits = new ArrayList<>();
 
-    /**
-     * Добаляет коллекцию фруктов типа T в коробку
-     *
-     * @param fruits коллекция фруктов типа T, которая добавляется в коробку
-     */
+    // Добавляет коллекцию фруктов типа T в коробку.
     public void addAll(List<T> fruits) {
         this.fruits.addAll(fruits);
     }
 
+    // Добавить несколько фруктов в корзину.
     public void addFew(T fruit, int amount) {
         for (int i = 0; i < amount; i++) {
             fruits.add(fruit);
         }
     }
 
-    //Добавил опцию "взять 1 врукт из корзины"
+    // Взять 1 фрукт из корзины
     public T takeOne(int index) {
         if(index < fruits.size()) {
             T fruit = fruits.get(index);
@@ -33,6 +29,7 @@ public class Box<T extends Fruit> {
         return null;
     }
 
+    // Взять несколько фруктов из корзины
     public List<T> takeFew(int amount) {
         if(amount < fruits.size()) {
             List<T> newBox = new ArrayList<>();
@@ -43,27 +40,14 @@ public class Box<T extends Fruit> {
             return newBox;
         } else {
             System.out.println("В корзине нет столько фруктов.");
-            return null;
+            return List.of();
         }
     }
 
-    /**
-     * Забрать все фрукты из коробки
-     *
-     * @return {@link List<T>} содержащий фрукты из коробки
-     */
+    // Забрать все фрукты из коробки
     public List<T> takeAll() {
         List<T> fruits = this.fruits;
         this.fruits.clear();
-        return fruits;
-    }
-
-    /**
-     * Возвращает все фрукты, содержащиеся в кообке
-     *
-     * @return {@link List<T>} содержащий фрукты из коробки
-     */
-    public List<T> getFruits() {
         return fruits;
     }
 
@@ -71,21 +55,13 @@ public class Box<T extends Fruit> {
         return fruits.stream().mapToDouble(Fruit::getWeight).sum();
     }
 
-    public void compare(Box<? extends Fruit> anotherBox) {
+    // Сравнение веса двух коробок (true - коробки примерно равны по весу | false - не равны).
+    public boolean compare(Box<? extends Fruit> anotherBox) {
         double deltaWeight = this.getWeight() - anotherBox.getWeight();
-        if (deltaWeight < -0.001f) {
-            System.out.println("Вторая коробка с фруктами тяжелее.");
-        } else {
-            if (deltaWeight > 0.001f) {
-                System.out.println("Первая коробка с фруктами тяжелее.");
-            } else {
-                if(deltaWeight > -0.5f & deltaWeight <0.5f) System.out.println("Коробки весят примерно одинаково.");
-            }
-        }
-        System.out.println("Разница в весе коробок " + deltaWeight);
+        return deltaWeight > -0.5f & deltaWeight < 0.5f;
     }
 
-    //Пересыпаем врукты из текущей коробки в указаную.
+    // Пересыпаем фрукты из текущей коробки в указанную.
     public void replace(Box<T> box) {
         box.addAll(this.takeAll());
     }

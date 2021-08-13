@@ -12,18 +12,27 @@ public class AttractionMenu {
             System.out.println("Нажмите '0' для выхода.");
             int i = Utils.numScanner();
             switch (i) {
-                case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 -> {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10: {
                     System.out.println("======================================");
                     System.out.println(AttractionRepository.getAttractionList().get(i - 1));
                     System.out.println("======================================");
                     break;
                 }
-                case 0 -> {
+                case 0: {
                     System.out.println("Приятного отдыха в нашем парке развлечений!");
                     System.exit(0);
                     break;
                 }
-                default -> System.out.println("Такой аттракцион отсутствует");
+                default: System.out.println("Такой аттракцион отсутствует");
             }
         }
     }

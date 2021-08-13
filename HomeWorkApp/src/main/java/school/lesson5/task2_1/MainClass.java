@@ -35,8 +35,8 @@ public class MainClass {
         Box<Orange> orangeBox = new Box<>();
         orangeBox.addAll(oranges);
         // Сравниваем вес корзин. Выводим какая из них тяжелее и на сколько.
-        appleBox.compare(orangeBox);
-        // Добавляем несколько фруктов в коробку а из другой заберем.
+        System.out.println(appleBox.compare(orangeBox));
+        // Добавляем несколько фруктов в коробку, а из другой заберем.
         appleBox.addFew(new Apple(4f), 3);
         Box<Orange> newOrangeBox = new Box<>();
         List<Orange> newOrangeList = orangeBox.takeFew(5);
@@ -45,7 +45,7 @@ public class MainClass {
         // Пересыпем все яблоки в новую коробку.
         Box<Apple> newAppleBox = new Box<>();
         newAppleBox.replace(appleBox);
-        //Можно добавить ещё парочку фруктов в коробку с яблоками.
+        // Можно добавить ещё несколько фруктов в коробку с яблоками.
         newAppleBox.addFew(new Apple(2.5f), 2);
     }
 }
