@@ -1,11 +1,8 @@
 package school.lesson6;
 
-public class MyArrayDataException extends NumberFormatException {
-    public MyArrayDataException() {
-    }
+public class MyArrayDataException extends Exception {
 
-    public MyArrayDataException(String s) {
-        super(s);
-
+    public MyArrayDataException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

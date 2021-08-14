@@ -1,12 +1,7 @@
 package school.lesson6;
 
-import school.lesson2.Utils;
-
-import java.util.Arrays;
-
 public class ArrayCreator {
     private int size;
-    private String [][] myArray;
 
     public int getSize() {
         return size;
@@ -39,18 +34,20 @@ public class ArrayCreator {
     public void setMyException() throws MyArraySizeException {
         if (size != 4) {
             throw new MyArraySizeException("Размер массива не удовлетворяет условию");
-
         }
     }
 
-    public int summer (String[][] myArray) {
+    public int summer (String[][] myArray) throws MyArrayDataException {
         int sum = 0;
-        for (String[] strings : myArray) {
+        for (int i = 0; i < myArray.length; i++) {
             for (int j = 0; j < myArray.length; j++) {
-                sum += Integer.parseInt(strings[j]);
+                try {
+                    sum += Integer.parseInt(myArray[i][j]);
+                } catch (NumberFormatException e) {
+                    System.err.println("Неудовлетворяющий элемент находится в ячейке [" + i +"][" + j + "]" );
+                    throw new MyArrayDataException("В массиве содержится элемент другого формата в ячейке № ", e);
+                }
             }
-        }
-        return sum;
+        } return sum;
     }
-
 }
