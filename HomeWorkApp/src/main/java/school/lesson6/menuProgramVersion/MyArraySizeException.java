@@ -1,4 +1,4 @@
-package school.lesson6;
+package school.lesson6.menuProgramVersion;
 
 public class MyArraySizeException extends Exception {
 

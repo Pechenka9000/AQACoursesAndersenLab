@@ -1,4 +1,4 @@
-package school.lesson6;
+package school.lesson6.basicProgramVersion;
 
 public class MyArrayDataException extends Exception {
 
