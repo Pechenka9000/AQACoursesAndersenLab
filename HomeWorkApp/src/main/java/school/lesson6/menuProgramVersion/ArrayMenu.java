@@ -58,7 +58,7 @@ public class ArrayMenu {
             // Проверка корректности введённых данных(если введено "q" - завершение программы):
                 dataChecker(mistakeCoordinateY);
             try {
-                array.setMistake(stringArray, Integer.parseInt(mistakeCoordinateX), Integer.parseInt(mistakeCoordinateY), mistake);
+                array.setMistake(stringArray, Integer.parseInt(mistakeCoordinateX)-1, Integer.parseInt(mistakeCoordinateY)-1, mistake);
             } catch (Exception e) {
                 e.printStackTrace();
             }
