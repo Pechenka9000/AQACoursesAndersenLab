@@ -28,7 +28,12 @@ public class MainClass {
             e.printStackTrace();
         }
         String[][] stringArray = array.getMyArray();
-        array.setMistake(stringArray, 2, 2, "pz");
+        // Обработка ошибки при вводе некорректных данных координат при размещении в массив.
+        try {
+            array.setMistake(stringArray, 3, 3, "pz");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("Указанные координаты находятся за пределами массива");
+        }
         Utils.stringArrayOut2(stringArray);
         // Обработка ошибки парсинга элементов к типу 'int' при подсчете суммы чисел:
         try {
