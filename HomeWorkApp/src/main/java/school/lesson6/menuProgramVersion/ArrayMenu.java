@@ -4,14 +4,24 @@ import school.lesson2.Utils;
 
 public class ArrayMenu {
 
-    public static void menu() throws Exception {
+    public static void menu() {
         for ( ; ; ) {
             System.out.println("Установите размер двумерного массива [i][j]: ");
             System.out.println("Нажмите 'q' для выхода.");
-            String sizeX = Utils.stringReader();
+            String sizeX = null;
+            try {
+                sizeX = Utils.stringReader();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             // Проверка корректности введённых данных(если введено "q" - завершение программы):
             dataChecker(sizeX);
-            String sizeY = Utils.stringReader();
+            String sizeY = null;
+            try {
+                sizeY = Utils.stringReader();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             // Проверка корректности введённых данных(если введено "q" - завершение программы):
             dataChecker(sizeY);
             ArrayCreator array = new ArrayCreator(Integer.parseInt(sizeX), Integer.parseInt(sizeY));
@@ -23,14 +33,29 @@ public class ArrayMenu {
             }
             String[][] stringArray = array.getMyArray();
             System.out.println("Введите НЕ число для создания ошибки: ");
-                String mistake = Utils.stringReader();
-                System.out.println("Задайте координаты [i][j] для размещения ошибки в массиве: ");
+            String mistake = null;
+            try {
+                mistake = Utils.stringReader();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println("Задайте координаты [i][j] для размещения ошибки в массиве: ");
                 System.out.println("Нажмите 'q' для выхода.");
-                String mistakeCoordinateX = Utils.stringReader();
-                // Проверка корректности введённых данных(если введено "q" - завершение программы):
+            String mistakeCoordinateX = null;
+            try {
+                mistakeCoordinateX = Utils.stringReader();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // Проверка корректности введённых данных(если введено "q" - завершение программы):
                 dataChecker(mistakeCoordinateX);
-                String mistakeCoordinateY = Utils.stringReader();
-                // Проверка корректности введённых данных(если введено "q" - завершение программы):
+            String mistakeCoordinateY = null;
+            try {
+                mistakeCoordinateY = Utils.stringReader();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // Проверка корректности введённых данных(если введено "q" - завершение программы):
                 dataChecker(mistakeCoordinateY);
             try {
                 array.setMistake(stringArray, Integer.parseInt(mistakeCoordinateX), Integer.parseInt(mistakeCoordinateY), mistake);
