@@ -1,4 +1,4 @@
-package school.lesson6;
+package school.lesson6.basicProgramVersion;
 
 import school.lesson2.Utils;
 
@@ -20,8 +20,6 @@ import school.lesson2.Utils;
 public class MainClass {
 
     public static void main(String[] args) throws Exception {
-        ArrayMenu.menu();
-        /*
         ArrayCreator array = new ArrayCreator(4, 4);
         // Обработка исключения размера массива класса 'MyArraySizeException':
         try {
@@ -38,7 +36,6 @@ public class MainClass {
         } catch (MyArrayDataException e) {
             e.printStackTrace();
         }
-        */
     }
 }
 
