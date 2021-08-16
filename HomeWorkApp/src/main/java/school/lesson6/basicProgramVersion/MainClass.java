@@ -1,7 +1,5 @@
 package school.lesson6.basicProgramVersion;
 
-import school.lesson2.Utils;
-
 /**
  * Напишите метод, на вход которого подаётся двумерный строковый массив
  * размером 4х4. При подаче массива другого размера необходимо бросить
@@ -18,8 +16,11 @@ import school.lesson2.Utils;
  * поэтому придумал реализацию обработки ошибок процесса "парсинга").
  */
 public class MainClass {
-
-    public static void main(String[] args) throws Exception {
+    public static final int X_TASK_CONDITION = 4;
+    public static final int Y_TASK_CONDITION = 4;
+    public static final String INITIAL_VALUE = "500000";
+    public static final String MISTAKE = "gg";
+    public static void main(String[] args) {
         ArrayCreator array = new ArrayCreator(4, 4);
         // Обработка исключения размера массива класса 'MyArraySizeException':
         try {
@@ -30,11 +31,14 @@ public class MainClass {
         String[][] stringArray = array.getMyArray();
         // Обработка ошибки при вводе некорректных данных координат при размещении в массив.
         try {
-            array.setMistake(stringArray, 3, 3, "pz");
+            array.setMistake(stringArray, 1, 2, MISTAKE);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println("Указанные координаты находятся за пределами массива");
+            System.err.println("Указанные координаты находятся за пределами массива;");
+            System.err.println("Необходимо ввести координаты от 1 до X = " + X_TASK_CONDITION + "; Y = " + Y_TASK_CONDITION);
+        } finally {
+            array.showArray(stringArray);
+
         }
-        Utils.stringArrayOut2(stringArray);
         // Обработка ошибки парсинга элементов к типу 'int' при подсчете суммы чисел:
         try {
             System.out.println(array.summer(stringArray));

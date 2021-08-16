@@ -6,7 +6,7 @@ public class ArrayMenu {
 
     public static void menu() {
         for ( ; ; ) {
-            System.out.println("Установите размер двумерного массива [i][j]: ");
+            System.out.println("Установите размер двумерного массива [x][y]: ");
             System.out.println("Нажмите 'q' для выхода.");
             String sizeX = null;
             try {
@@ -32,7 +32,6 @@ public class ArrayMenu {
                     e.printStackTrace();
                     break;
                 }
-                String[][] stringArray = array.getMyArray();
                 System.out.println("Введите НЕ число для создания ошибки: ");
                 String mistake = null;
                 try {
@@ -40,7 +39,9 @@ public class ArrayMenu {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                System.out.println("Задайте координаты [i][j] для размещения ошибки в массиве: ");
+                String[][] stringArray = array.getMyArray();
+                array.showArray();
+                System.out.println("Задайте координаты [x][y] для размещения ошибки в массиве: ");
                 System.out.println("Нажмите 'q' для выхода.");
                 String mistakeCoordinateX = null;
                 try {
@@ -65,7 +66,7 @@ public class ArrayMenu {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Utils.stringArrayOut2(stringArray);
+                array.showArray(stringArray);
                 try {
                     System.out.println(array.summer(stringArray));
                 } catch (MyArrayDataException e) {
@@ -76,7 +77,7 @@ public class ArrayMenu {
     }
 
     public static void dataChecker(String firstParam)  {
-        if (String.valueOf(firstParam).equals("q")) {
+        if (String.valueOf(firstParam).equalsIgnoreCase("q")) {
             System.out.println("Завершение программы...");
             System.exit(0);
         } else {

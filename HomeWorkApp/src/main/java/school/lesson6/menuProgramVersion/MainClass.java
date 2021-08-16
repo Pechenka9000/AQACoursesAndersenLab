@@ -18,7 +18,9 @@ package school.lesson6.menuProgramVersion;
  * Данная версия программы релизована через "menu". Добавлено несколько дополнительных исключений.
  */
 public class MainClass {
-
+    public static final int X_TASK_CONDITION = 4;
+    public static final int Y_TASK_CONDITION = 4;
+    public static final String INITIAL_VALUE = "4500";
     public static void main(String[] args) {
         ArrayMenu.menu();
     }
