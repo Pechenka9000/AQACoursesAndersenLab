@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Serializator {
 
-    public boolean serialization (List<AppData> dataList) {
+    public boolean serialization (List<Integer> dataList) {
         boolean flag = false;
         File file = new File("D:/JAVA study/AQACoursesAndersenLab/HomeWorkApp/src/main/java/school/lesson7/dataFile.csv");
         ObjectOutputStream oos = null;

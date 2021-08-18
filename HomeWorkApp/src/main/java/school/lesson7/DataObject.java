@@ -6,12 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataObject implements Serializable {
+    /*
     private List<String> headerList = new ArrayList<>();
-    private HashMap<Integer, List<AppData>> dataMap = new HashMap<Integer, List<AppData>>();
+    private HashMap<Integer, List<Integer>> dataMap = new HashMap<Integer, List<Integer>>();
 
-    public DataObject(List<String> headerList, HashMap<Integer, List<AppData>> dataMap) {
+    public DataObject(List<String> headerList, HashMap<Integer, List<Integer>> dataMap) {
         this.headerList = headerList;
         this.dataMap = dataMap;
+    }
+
+    public DataObject(List<String> headerList, HashMap<Integer, List<Integer>> setHashMap) {
     }
 
     public List<String> getHeaderList() {
@@ -22,11 +26,11 @@ public class DataObject implements Serializable {
         this.headerList = headerList;
     }
 
-    public HashMap<Integer, List<AppData>> getDataMap() {
+    public HashMap<Integer, List<Integer>> getDataMap() {
         return dataMap;
     }
 
-    public void setDataMap(HashMap<Integer, List<AppData>> dataMap) {
+    public void setDataMap(HashMap<Integer, List<Integer>> dataMap) {
         this.dataMap = dataMap;
     }
 
@@ -37,4 +41,8 @@ public class DataObject implements Serializable {
                 ", dataMap=" + dataMap +
                 '}';
     }
+     */
+
 }
+
+

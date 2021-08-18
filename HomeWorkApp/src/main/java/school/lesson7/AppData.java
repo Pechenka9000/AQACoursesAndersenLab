@@ -8,34 +8,44 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AppData implements Serializable {
-    private String header;
-    private int data;
-    private static HashMap<Integer, List<AppData>> dataMap = new HashMap<Integer, List<AppData>>();
+    private List<String> headerList = new ArrayList<>();
+    private List<Integer> dataList = new ArrayList<>();
+    private static HashMap<Integer, List<Integer>> dataHashMap = new HashMap<Integer, List<Integer>>();
 
-
-    public AppData(int data) {
-        this.data = data;
+    public AppData(List<String> headerList, List<Integer> dataList) {
+        this.headerList = headerList;
+        this.dataList = dataList;
     }
 
-    public static HashMap<Integer, List<AppData>> setHashMap() {
-        for(int index = 0; index < DataRepository.getDataList().size(); index++) {
-            dataMap.put(index, DataRepository.getDataList().subList(0, 2));
-        } return dataMap;
+    public static HashMap <Integer, List<Integer>> setHashMap() {
+        int a = 0;
+        int b = 2;
+
+        for(int index = 1; index < 3; index ++) {
+            dataHashMap.put(index, DataRepository.getDataList().subList(a, b));
+            a += 3;
+            b += 3;
+        }
+
+        return dataHashMap;
     }
 
-    public String getHeader() {
-        return header;
+    public List<String> getHeaderList() {
+        return headerList;
     }
 
-    public int getData() {
-        return data;
+    public void setHeaderList(List<String> headerList) {
+        this.headerList = headerList;
     }
 
-    @Override
-    public String toString() {
-        return "AppData{" +
-                "header='" + header + '\'' +
-                ", data=" + data +
-                '}';
+    public List<Integer> getDataList() {
+        return dataList;
+    }
+
+    public void setDataList(List<Integer> dataList) {
+        this.dataList = dataList;
     }
 }
+
+
+
