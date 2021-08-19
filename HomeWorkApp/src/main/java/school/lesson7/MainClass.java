@@ -13,6 +13,7 @@ public class MainClass {
     public static void main(String[] args) throws IOException {
         CRUD crud = new CRUD();
         crud.CSVWriter(Headers.getHeaderList(), PATH2, false);
-        crud.CSVWriter2(DataRepository.getDataList2(), PATH2, true);
+        //crud.CSVWriter2(DataRepository.getDataList2(), PATH2, true);
+        crud.CSVWriter3(DataRepository.getDataList2(), PATH2, true);
     }
 }

@@ -13,6 +13,7 @@ public class CRUD {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        assert writer != null;
         writer.writeAll(dataList);
         try {
             writer.close();
@@ -28,6 +29,7 @@ public class CRUD {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        assert writer != null;
         writer.writeAll(dataList);
         try {
             writer.close();
@@ -36,31 +38,35 @@ public class CRUD {
         }
     }
 
+    public void CSVWriter3(List<String[]> dataList, String path, Boolean reWrite) {
+        CSVWriter writer1 = null;
+        CSVWriter writer2 = null;
+        CSVWriter writer3 = null;
+        try {
+            writer1 = new CSVWriter(new FileWriter(path, reWrite), ';', CSVWriter.NO_QUOTE_CHARACTER);
+            writer2 = new CSVWriter(new FileWriter(path, reWrite), ',', CSVWriter.NO_QUOTE_CHARACTER);
+            writer3 = new CSVWriter(new FileWriter(path, reWrite), '|', CSVWriter.NO_QUOTE_CHARACTER);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert writer1 != null;
+        writer1.writeNext(dataList.get(0));
+        assert writer2 != null;
+        writer2.writeNext(dataList.get(1));
+        assert writer3 != null;
+        writer3.writeNext(dataList.get(2));
+        try {
+            writer1.close();
+            writer2.close();
+            writer3.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 /*
-
     public void bufferedWriter() {
         try (FileWriter fileWriter = new FileWriter(MainClass.PATH)) {
             Headers.getHeaderList().forEach(head -> {
@@ -135,4 +141,4 @@ public class CRUD {
             }
         }
      */
-}
+
