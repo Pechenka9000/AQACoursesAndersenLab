@@ -5,7 +5,7 @@ import school.lesson2.Utils;
 public class ArrayMenu {
 
     public static void menu() {
-        for ( ; ; ) {
+        for (; ; ) {
             System.out.println("Установите размер двумерного массива [x][y]: ");
             System.out.println("Нажмите 'q' для выхода.");
             String sizeX = null;
@@ -24,7 +24,7 @@ public class ArrayMenu {
             }
             // Проверка корректности введённых данных(если введено "q" - завершение программы):
             dataChecker(sizeY);
-            if(sizeX != null & sizeY != null) {
+            if (sizeX != null & sizeY != null) {
                 ArrayCreator array = new ArrayCreator(Integer.parseInt(sizeX), Integer.parseInt(sizeY));
                 try {
                     array.setMyException();
@@ -76,7 +76,7 @@ public class ArrayMenu {
         }
     }
 
-    public static void dataChecker(String firstParam)  {
+    public static void dataChecker(String firstParam) {
         if (String.valueOf(firstParam).equalsIgnoreCase("q")) {
             System.out.println("Завершение программы...");
             System.exit(0);
