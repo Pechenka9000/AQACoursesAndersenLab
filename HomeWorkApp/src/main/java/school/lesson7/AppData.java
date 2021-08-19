@@ -1,20 +1,31 @@
 package school.lesson7;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AppData {
-    private static List<String[]> dataList2 = new ArrayList<>();
-    static {
-        dataList2.add("780;954;1042".split(";"));
-        dataList2.add("800,967;970".split(";"));
-        dataList2.add("1525;1420;1100".split(";"));
+    private String[] header;
+    private int[][] data;
+
+    public AppData() {
     }
 
-    public static List<String[]> getDataList2() {
-        return dataList2;
+    public String[] getHeader(int headerSize) {
+        String[] header = new String[headerSize];
+        for(int i = 1; i <= headerSize; i++) {
+            header[i-1] = "Value".concat(String.valueOf(i));
+        }
+        //String[] header1 = ("Value1;Value2;Value3".split(";"));
+        return header;
     }
 
+    public int[][] getData(int sizeX, int sizeY) {
+        int a = 100;
+        int [][] data = new int[sizeX][sizeY];
+        for (int i = 0; i < sizeX; i++) {
+            for (int j = 0; j < sizeY; j++) {
+                data[i][j] = a++;   //new Random().nextInt(1000);
+            }
+        }
+        return data;
+    }
 }
 
 

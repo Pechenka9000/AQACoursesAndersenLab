@@ -1,12 +1,33 @@
 package school.lesson7;
 
+import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CRUD {
 
-    public void CSVWriter(List<String[]> dataList, String path, Boolean reWrite) {
+    public List<String[]> listIntWriter(int[][] myData) {
+        List<String[]> stringDataList = new ArrayList<>();
+        //String[] myHeader = ("Value1;Value2;Value3".split(";"));
+        for (int i = 0; i < MainClass.HEADER_SIZE; i++) {
+            String[] array = new String[MainClass.HEADER_SIZE];
+            for (int j = 0; j < 3; j++) {
+                array[j] = String.valueOf(myData[i][j]);
+            } stringDataList.add(array);
+        }
+        return stringDataList;
+    }
+
+    public void listOuter(List<String[]> list) {
+        for (String[] strings : list) {
+            System.out.println(Arrays.deepToString(strings));
+        }
+    }
+
+    public void csvWriter(List<String[]> dataList, String path, Boolean reWrite) {
         CSVWriter writer = null;
         try {
             writer = new CSVWriter(new FileWriter(path, reWrite), ';', CSVWriter.NO_QUOTE_CHARACTER);
@@ -22,7 +43,7 @@ public class CRUD {
         }
     }
 
-    public void CSVWriter2(List<String[]> dataList, String path, Boolean reWrite) {
+    public void csvWriter(String[] dataList, String path, Boolean reWrite) {
         CSVWriter writer = null;
         try {
             writer = new CSVWriter(new FileWriter(path, reWrite), ';', CSVWriter.NO_QUOTE_CHARACTER);
@@ -30,7 +51,7 @@ public class CRUD {
             e.printStackTrace();
         }
         assert writer != null;
-        writer.writeAll(dataList);
+        writer.writeNext(dataList);
         try {
             writer.close();
         } catch (IOException e) {
@@ -38,7 +59,8 @@ public class CRUD {
         }
     }
 
-    public void CSVWriter3(List<String[]> dataList, String path, Boolean reWrite) {
+    // Добавил такой вариант записи в файл согласно примеру из домашнего задания (во второй строке данные разделены символом ',').
+    public void csvWriterSpecialSeparators(List<String[]> dataList, String path, Boolean reWrite) {
         CSVWriter writer1 = null;
         CSVWriter writer2 = null;
         CSVWriter writer3 = null;
@@ -64,81 +86,24 @@ public class CRUD {
             e.printStackTrace();
         }
     }
+
+    public void csvReader(String path) {
+        CSVReader reader = null;
+        try {
+            reader = new CSVReader(new FileReader(path), CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER, 0);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        List<String[]> allRows = null;
+        try {
+            assert reader != null;
+            allRows = reader.readAll();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert allRows != null;
+        for (String[] row : allRows) {
+            System.out.println(Arrays.toString(row));
+        }
+    }
 }
-
-/*
-    public void bufferedWriter() {
-        try (FileWriter fileWriter = new FileWriter(MainClass.PATH)) {
-            Headers.getHeaderList().forEach(head -> {
-                try {
-                    fileWriter.write(head + ";");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-            fileWriter.write(System.lineSeparator());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void bufferedWriter2() {
-        try (FileWriter fileWriter = new FileWriter(MainClass.PATH, true)){
-            DataRepository.getDataList().forEach(data -> {
-                try {
-                    fileWriter.write(data+";");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void bufferedWriter3(int lineSize) {
-        int a = 0;
-        AtomicInteger j = new AtomicInteger();
-        try (FileWriter fileWriter = new FileWriter(MainClass.PATH, true)){
-            for(int i = 0; i < DataRepository.getDataList().size(); i+=lineSize, a+=3) {
-                DataRepository.getDataList().subList(a, a+lineSize).forEach(data2 -> {
-                        try {
-                            fileWriter.write(data2 + ";");
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        j.getAndIncrement();
-
-                });
-                try {
-                    fileWriter.write(System.lineSeparator());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void bufferedReader() {
-        String s;
-        try (BufferedReader reader = new BufferedReader(new FileReader(MainClass.PATH))){
-            while ((s = reader.readLine()) != null) {
-                System.out.print(s);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void randomAccessFile() {
-            try (RandomAccessFile randomAccessFile = new RandomAccessFile(MainClass.PATH, "r")) {
-                randomAccessFile.seek(2);
-                System.out.println((char) randomAccessFile.read());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-     */
-
