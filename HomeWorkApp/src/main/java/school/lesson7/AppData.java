@@ -1,50 +1,20 @@
 package school.lesson7;
 
-import school.lesson4.task6.Goods;
-
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class AppData implements Serializable {
-    private List<String> headerList = new ArrayList<>();
-    private List<Integer> dataList = new ArrayList<>();
-    private static HashMap<Integer, List<Integer>> dataHashMap = new HashMap<Integer, List<Integer>>();
-
-    public AppData(List<String> headerList, List<Integer> dataList) {
-        this.headerList = headerList;
-        this.dataList = dataList;
+public class AppData {
+    private static List<String[]> dataList2 = new ArrayList<>();
+    static {
+        dataList2.add("780;954;1042".split(";"));
+        dataList2.add("800,967;970".split(";"));
+        dataList2.add("1525;1420;1100".split(";"));
     }
 
-    public static HashMap <Integer, List<Integer>> setHashMap() {
-        int a = 0;
-        int b = 2;
-
-        for(int index = 1; index < 3; index ++) {
-            dataHashMap.put(index, DataRepository.getDataList().subList(a, b));
-            a += 3;
-            b += 3;
-        }
-
-        return dataHashMap;
+    public static List<String[]> getDataList2() {
+        return dataList2;
     }
 
-    public List<String> getHeaderList() {
-        return headerList;
-    }
-
-    public void setHeaderList(List<String> headerList) {
-        this.headerList = headerList;
-    }
-
-    public List<Integer> getDataList() {
-        return dataList;
-    }
-
-    public void setDataList(List<Integer> dataList) {
-        this.dataList = dataList;
-    }
 }
 
 

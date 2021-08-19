@@ -1,52 +1,65 @@
 package school.lesson7;
 
 import au.com.bytecode.opencsv.CSVWriter;
-import school.lesson3.Main;
-
 import java.io.*;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class CRUD {
 
-    public void createFile() {
-        File file = new File(MainClass.PATH);
+    public void CSVWriter(List<String[]> dataList, String path, Boolean reWrite) {
+        CSVWriter writer = null;
         try {
-            file.createNewFile();
+            writer = new CSVWriter(new FileWriter(path, reWrite), ';', CSVWriter.NO_QUOTE_CHARACTER);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        writer.writeAll(dataList);
+        try {
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Чтение с клавиатуры и запись в файл
-    public void fromConsoleBufferedWriter() {
-        String s;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try (FileWriter fileWriter = new FileWriter(MainClass.PATH))
-        {
-            s = reader.readLine();
-            fileWriter.write(s);
+    public void CSVWriter2(List<String[]> dataList, String path, Boolean reWrite) {
+        CSVWriter writer = null;
+        try {
+            writer = new CSVWriter(new FileWriter(path, reWrite), ';', CSVWriter.NO_QUOTE_CHARACTER);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        writer.writeAll(dataList);
+        try {
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void CSVWriter() {
-        for (int i = 0; i < Headers.getHeaderList().size(); i++) {
-            CSVWriter writer = null;
-            try {
-                writer = new CSVWriter(new FileWriter("C:/Studying_JAVA/AQACoursesAndersenLab/HomeWorkApp/src/main/java/school/lesson7/dataFile3.csv"), ';');
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (writer != null) {
-                String[] abc = {"a", "b", "c"};
-                writer.writeNext(abc);
-            }
-        }
-    }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
     public void bufferedWriter() {
         try (FileWriter fileWriter = new FileWriter(MainClass.PATH)) {
@@ -121,7 +134,5 @@ public class CRUD {
                 e.printStackTrace();
             }
         }
-
-
-
+     */
 }

@@ -4,20 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataRepository {
-    private static List<Integer> dataList = new ArrayList<>();
+    private static List<String[]> dataList2 = new ArrayList<>();
     static {
-        dataList.add(0, 780);
-        dataList.add(1, 954);
-        dataList.add(2, 1042);
-        dataList.add(3, 800);
-        dataList.add(4, 967);
-        dataList.add(5, 970);
-        dataList.add(6, 1525);
-        dataList.add(7, 1420);
-        dataList.add(8, 1100);
+        dataList2.add("780;954;1042".split(";"));
+        dataList2.add("800;967;970".split(";"));
+        dataList2.add("1525;1420;1100".split(";"));
     }
 
-    public static List<Integer> getDataList() {
-        return dataList;
+    public static List<String[]> getDataList2() {
+        return dataList2;
     }
 }

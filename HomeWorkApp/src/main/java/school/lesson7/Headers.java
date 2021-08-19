@@ -1,18 +1,15 @@
 package school.lesson7;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Headers implements Serializable {
-    private static List<String> headerList = new ArrayList<>();
+public class Headers {
+    private static List<String[]> headerList = new ArrayList<>();
     static {
-        headerList.add("Value1");
-        headerList.add("Value2");
-        headerList.add("Value3");
+        headerList.add("Value1;Value2;Value3".split(";"));
     }
 
-    public static List<String> getHeaderList() {
+    public static List<String[]> getHeaderList() {
         return headerList;
     }
 }

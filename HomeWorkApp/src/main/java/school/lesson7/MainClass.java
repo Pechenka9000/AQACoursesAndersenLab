@@ -1,11 +1,6 @@
 package school.lesson7;
 
-import au.com.bytecode.opencsv.CSVWriter;
-
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InvalidObjectException;
 
 /**
  * 1. Реализовать сохранение данных в csv файл;
@@ -13,28 +8,11 @@ import java.io.InvalidObjectException;
  */
 
 public class MainClass {
-    public static final String PATH = "C:/Studying_JAVA/AQACoursesAndersenLab/HomeWorkApp/src/main/java/school/lesson7/dataFile.txt";
-    public static void main(String[] args) {
-        /*
-        File file = new File(PATH);
-        System.out.println(file.exists());
+    public static final String PATH2 = "D:/JAVA study/AQACoursesAndersenLab/HomeWorkApp/src/main/java/school/lesson7/dataFile2.csv";
+
+    public static void main(String[] args) throws IOException {
         CRUD crud = new CRUD();
-        crud.bufferedWriter();
-        crud.bufferedWriter3(3);
-        crud.bufferedReader();
-        crud.randomAccessFile();
-        file = new File("C:/Studying_JAVA/AQACoursesAndersenLab/HomeWorkApp/src/main/java/school/lesson7/dataFile2.txt");
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-         */
-        CRUD crud = new CRUD();
-        crud.CSVWriter();
-
-
-
+        crud.CSVWriter(Headers.getHeaderList(), PATH2, false);
+        crud.CSVWriter2(DataRepository.getDataList2(), PATH2, true);
     }
-
 }
