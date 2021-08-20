@@ -1,13 +1,13 @@
-package school.lesson7;
+package school.lesson7.utils;
 
 import java.io.*;
 import java.util.List;
-
+/*
 public class Serializator {
 
-    public boolean serialization (List<Integer> dataList) {
+    public boolean serialization (List<String[]> dataList) {
         boolean flag = false;
-        File file = new File("D:/JAVA study/AQACoursesAndersenLab/HomeWorkApp/src/main/java/school/lesson7/dataFile.csv");
+        File file = new File(MainClass.PATH);
         ObjectOutputStream oos = null;
         try {
             FileOutputStream fos = new FileOutputStream(file);
@@ -61,3 +61,5 @@ public class Serializator {
 
     }
 }
+
+ */

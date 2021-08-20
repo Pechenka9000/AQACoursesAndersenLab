@@ -1,4 +1,4 @@
-package school.lesson7;
+package school.lesson7.upgradedProgramVersion;
 
 import java.util.ArrayList;
 import java.util.List;

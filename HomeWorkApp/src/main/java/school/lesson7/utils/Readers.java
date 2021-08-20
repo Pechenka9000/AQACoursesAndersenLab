@@ -1,8 +1,8 @@
-package school.lesson7;
+package school.lesson7.utils;
 
 import java.io.*;
 import java.util.concurrent.atomic.AtomicInteger;
-
+/*
 public class Readers {
     public void bufferedWriter() {
         try (FileWriter fileWriter = new FileWriter(MainClass.PATH)) {
@@ -77,4 +77,5 @@ public class Readers {
             e.printStackTrace();
         }
     }
-}
+
+ */
