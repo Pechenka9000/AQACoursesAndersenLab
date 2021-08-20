@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DataProcessingTest {
     private static final DataProcessing DATA_PROCESSING = new DataProcessing();
+    private static final AppData APP_DATA = new AppData();
     private static List<String[]> validStringDataList = new ArrayList<>();
         static {
             validStringDataList.add(0, new String[]{"150", "200", "250"});
@@ -43,7 +44,8 @@ class DataProcessingTest {
 
     @Test
     void arrayToList() {
-        Assertions.assertEquals(validStringDataList.get(0), DATA_PROCESSING.arrayToList(validExpectedValues).get(0));
+        Assertions.assertArrayEquals(validStringDataList.get(0), DATA_PROCESSING.arrayToList(APP_DATA.getData()).get(0));
+
     }
 
     @Test
