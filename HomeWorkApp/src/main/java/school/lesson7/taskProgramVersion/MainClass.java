@@ -22,7 +22,6 @@ public class MainClass {
         AppData appData = new AppData();
         processing.save(appData, false);
         processing.reader(PATH);
-        processing.csvWriterSpecialSeparators(processing.arrayToList(appData.getData()), 0, ';', PATH, true);
 
     }
 }

@@ -32,10 +32,10 @@ public class DataProcessing {
             e.printStackTrace();
         }
         assert writer != null;
-        writer.writeNext(appData.getHeader());
-        writer.writeAll(arrayToList(appData.getData()));
-        //csvWriterSpecialSeparators(arrayToList(appData.getData()), 0, ';', MainClass.PATH, true);
-        //csvWriterSpecialSeparators(arrayToList(appData.getData()), 1, ',', MainClass.PATH, true);
+        csvWriterSpecialSeparators(appData.getHeader(), 0, ';', MainClass.PATH, false);
+        csvWriterSpecialSeparators(arrayToList(appData.getData()), 0, ';', MainClass.PATH, true);
+        csvWriterSpecialSeparators(arrayToList(appData.getData()), 1, ',', MainClass.PATH, true);
+
         try {
             writer.close();
         } catch (IOException e) {
@@ -44,6 +44,22 @@ public class DataProcessing {
     }
 
     // Добавил такой вариант записи в файл согласно примеру из домашнего задания (во второй строке данные разделены символом ',').
+    public void csvWriterSpecialSeparators(String[] dataList, int rawNum, char separator, String path, Boolean reWrite) {
+        CSVWriter writer = null;
+        try {
+            writer = new CSVWriter(new FileWriter(path, reWrite), separator, CSVWriter.NO_QUOTE_CHARACTER);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert writer != null;
+        writer.writeNext(dataList);
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void csvWriterSpecialSeparators(List<String[]> dataList, int rawNum, char separator, String path, Boolean reWrite) {
         CSVWriter writer = null;
         try {
