@@ -1,5 +1,6 @@
 package school.lesson7.upgradedProgramVersion;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  * данные формата "String[]" и записать их в любом порядке и любой форме в файл.
  */
 public class MainClass {
-    public static final String PATH = "C:/Studying_JAVA/AQACoursesAndersenLab/HomeWorkApp/src/main/java/school/lesson7/files/dataFileUpgraded.csv";
+    public static final String PATH = new File("dataFileUpgraded.csv").getAbsolutePath();
 
     public static void main(String[] args) {
         DataProcessing dataProcessing = new DataProcessing();

@@ -1,9 +1,6 @@
 package school.lesson7.taskProgramVersion;
 
-import school.lesson2.Utils;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.io.File;
 
 /**
  * Реализовать сохранение данных в csv файл;
@@ -11,7 +8,7 @@ import java.util.Arrays;
  * (Версия программы, удовлетворяющая условию задания).
  */
 public class MainClass {
-    public static final String PATH = "C:/Studying_JAVA/AQACoursesAndersenLab/HomeWorkApp/src/main/java/school/lesson7/files/dataFileBasic.csv";
+    public static final String PATH = new File("dataFileBasic.csv").getAbsolutePath();
     public static final int HEADER_SIZE = 3;
     public static final int X_TASK_CONDITION = 3;
     public static final int Y_TASK_CONDITION = 2;
@@ -22,6 +19,5 @@ public class MainClass {
         AppData appData = new AppData();
         processing.save(appData, false);
         processing.reader(PATH);
-
     }
 }
