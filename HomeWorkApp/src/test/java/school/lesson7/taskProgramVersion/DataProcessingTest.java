@@ -2,14 +2,10 @@ package school.lesson7.taskProgramVersion;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DataProcessingTest {
     private static final DataProcessing DATA_PROCESSING = new DataProcessing();

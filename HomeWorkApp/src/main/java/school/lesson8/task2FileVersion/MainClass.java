@@ -14,7 +14,7 @@ import java.io.IOException;
  * Так же в данной версии не использовал 'static').
  */
 public class MainClass {
-    public static final String PATH = new File("Phonebook.txt").getAbsolutePath();
+    public static final String PATH = new File("Phonebook.cvs").getAbsolutePath();
 
     public static void main(String[] args) throws IOException {
         Phonebook phonebook = new Phonebook();
@@ -25,7 +25,7 @@ public class MainClass {
         System.out.println(phonebook.getPhonebook());
         // Реализована функция поиска в книге по фамилии или номеру телефона(даже частично и игнорируя регистр - для
         // телефонного справочника очень удобный поиск, т.к. не всегда точно помнишь фамилию или номер)
-        phonebook.getPersons("котлпмр");
+        phonebook.getPersons("котл");
         System.out.println(phonebook.getPersons());
         phonebook.phonebookWriter(PATH, false);
         phonebook.phonebookReader(PATH);

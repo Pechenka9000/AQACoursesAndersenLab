@@ -67,7 +67,7 @@ public class Phonebook {
         try (FileWriter fileWriter = new FileWriter(path, reWrite)) {
             getPhonebook().forEach(data -> {
                 try {
-                    fileWriter.write(data + ";" + System.lineSeparator());
+                    fileWriter.write(data + System.lineSeparator());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
