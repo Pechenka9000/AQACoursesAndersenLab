@@ -27,7 +27,7 @@ public class Person implements Comparable{
 
     @Override
     public String toString() {
-        return lastName + ", phone - " + phone;
+        return lastName + "  " + phone;
     }
 
     @Override

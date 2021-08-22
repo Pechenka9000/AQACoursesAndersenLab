@@ -36,15 +36,16 @@ public class Phonebook {
         return phonebook;
     }
 
-    public static void sort() {
-        Collections.sort(phonebook);
+    public static List<Person> sort(List<Person> list) {
+        Collections.sort(list);
+        return list;
     }
 
-    public static void add(Person person, Boolean sortMarker) {
+    public static List<Person> add(Person person, Boolean sortMarker) {
         phonebook.add(person);
         if(sortMarker) {
-            sort();
-        }
+            sort(phonebook);
+        } return phonebook;
     }
 
     public static List<Person> getPersons(String request) {

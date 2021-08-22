@@ -12,15 +12,14 @@ public class MainClass {
 
     public static void main(String[] args) {
         System.out.println(Phonebook.getPhonebook());
-        Phonebook.sort();
-        System.out.println(Phonebook.getPhonebook());
+        Phonebook.sort(Phonebook.getPhonebook());
         // Внёс "sortMarker" в конструктор методу "add". Если true - сортирует список после добавления нового человека,
         // false - добавляет в конец списка без упорядочивания элементов.
         Phonebook.add(new Person("Пирожокскапустин", "+375(29)9876543"), true);
         System.out.println(Phonebook.getPhonebook());
         // Реализована функция поиска в книге по фамилии или номеру телефона(даже частично и игнорируя регистр - для
         // телефонного справочника очень удобный поиск, т.к. не всегда точно помнишь фамилию или номер)
-        Phonebook.getPersons("пирож");
+        Phonebook.getPersons("дран");
         System.out.println(Phonebook.getPersons());
     }
 }
