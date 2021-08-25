@@ -14,7 +14,7 @@ import java.io.IOException;
  * Так же в данной версии не использовал 'static').
  */
 public class MainClass {
-    public static final String PATH = new File("Phonebook.cvs").getAbsolutePath();
+    public static final String PATH = new File("Phonebook.csv").getAbsolutePath();
 
     public static void main(String[] args) throws IOException {
         Phonebook phonebook = new Phonebook();
